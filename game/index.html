@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a13">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <title>NEON SWARM</title>
+</head>
+<body>
+  <main class="cabinet">
+    <header class="mast">
+      <div class="brand"><span aria-hidden="true">◈</span> NEON SWARM</div>
+      <button id="sound" class="quiet" aria-pressed="false">SOUND ON <kbd>M</kbd></button>
+    </header>
+    <section class="frame" aria-label="Neon Swarm arena">
+      <div class="hud" id="hud" hidden>
+        <div><small>SCORE</small><strong id="score"></strong></div>
+        <div><small>SURVIVAL</small><strong id="time"></strong></div>
+        <div><small>ELIMINATIONS</small><strong id="kills"></strong></div>
+        <div class="meters">
+          <div class="meter-label"><small>HULL</small><span id="health"></span></div>
+          <div class="track hull"><i id="hp"></i></div>
+          <div class="meter-label"><small id="level"></small><span id="experience"></span></div>
+          <div class="track xp"><i id="xp"></i></div>
+        </div>
+      </div>
+      <div class="stage">
+        <canvas id="arena" width="1120" height="560" aria-label="Top-down survival arena"></canvas>
+        <div class="overlay title" id="title">
+          <div class="intro">
+            <div class="eyebrow"><span></span> ARENA SURVIVAL</div>
+            <h1>NEON<br><em>SWARM</em></h1>
+            <p>Outfly the swarm. Collect its shards.<br>Upgrade your ship and see how long you last.</p>
+            <button class="primary" id="start">ENTER ARENA <span>↗</span></button>
+            <div class="hint">or press <kbd>ENTER</kbd></div>
+          </div>
+        </div>
+        <div class="overlay modal" id="paused" hidden>
+          <div class="panel"><div class="eyebrow">ARENA ON HOLD</div><h2>PAUSED</h2>
+          <button class="primary" id="resume">RESUME <span>↗</span></button>
+          <div class="hint"><kbd>P</kbd> or <kbd>ESC</kbd></div></div>
+        </div>
+        <div class="overlay modal" id="upgrade" hidden>
+          <div class="panel upgrade-panel"><div class="eyebrow" id="upgrade-level"></div>
+          <h2>CHOOSE AN UPGRADE</h2><div id="choices"></div></div>
+        </div>
+        <div class="overlay modal" id="over" hidden>
+          <div class="panel results"><div class="eyebrow">SIGNAL LOST</div><h2>SWARMED</h2>
+          <div class="stats">
+            <div><small>FINAL SCORE</small><strong id="final-score"></strong></div>
+            <div><small>SURVIVAL</small><strong id="final-time"></strong></div>
+            <div><small>ELIMINATIONS</small><strong id="final-kills"></strong></div>
+          </div>
+          <button class="primary" id="restart">REDEPLOY <span>↗</span></button>
+          <div class="hint">or press <kbd>R</kbd></div></div>
+        </div>
+      </div>
+      <footer class="controls">
+        <span><kbd>WASD / ↑↓←→</kbd> Move</span>
+        <span><kbd>MOUSE</kbd> Aim</span>
+        <span><kbd>CLICK / SPACE</kbd> Fire</span>
+        <button class="quiet" id="pause" disabled><kbd>P / ESC</kbd> Pause</button>
+      </footer>
+    </section>
+    <div class="legend"><span><i class="triangle"></i> CHASER</span><span><i class="square"></i> DASHER</span><span><i class="pentagon"></i> SPLITTER</span><span><i class="shard"></i> XP SHARD</span></div>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
